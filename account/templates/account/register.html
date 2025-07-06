@@ -16,7 +16,19 @@
 <form method="post">
     {% csrf_token %}
     <h3>Login Here</h3>
-    {{ form }}
+
+    <label for="username">Username</label>
+    <input type="text" name="name" placeholder="Email or Phone" id="username">
+
+    <label for="username">Email</label>
+    <input type="text" name="email" placeholder="Email or Phone" id="username">
+
+    <label for="username">Password</label>
+    <input type="text" name="password1" placeholder="Email or Phone" id="username">
+
+    <label for="password">Password agen</label>
+    <input type="password" name="password2" placeholder="Password" id="password">
+
     <button>Log In</button>
     <p class="social-text">Login with a social media account</p>
 

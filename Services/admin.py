@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import ServiceCar
+from .models import AboutDrive
+admin.site.register(AboutDrive)
 
 
 

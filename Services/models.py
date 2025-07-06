@@ -16,3 +16,14 @@ class ServiceCar(models.Model):
     class Meta:
         verbose_name = 'ماشین'
         verbose_name_plural = 'ماشین ها'
+
+
+class AboutDrive(models.Model):
+    name = models.CharField(max_length=100, verbose_name='نام تعمیر کاران')
+    about = models.TextField(verbose_name='درباره ')
+    image = models.ImageField(upload_to='about', verbose_name='عکس')
+
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = 'درباره افراد'

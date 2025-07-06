@@ -42,21 +42,21 @@ def register_page(request):
         password2 = request.POST.get('password2')
         if password1 != password2:
             context['error'].append('passwords do not match')
-            return render(request,'account/login.html',context)
+            return render(request,'account/register.html',context)
         if User.objects.filter(email=email).exists():
             context['error'].append('email is already registered')
-            return render(request,'account/login.html',context)
+            return render(request,'account/register.html',context)
         if User.objects.filter(username=username).exists():
             context['error'].append('username is already registered')
-            return render(request,'account/login.html',context)
+            return render(request,'account/register.html',context)
         user = User.objects.create_user(username=username, email=email, password=password1)
         if user is not None:
             login(request, user)
             return redirect('Services:car')
         else:
             context['error'].append('username or password is incorrect')
-            return render(request,'account/login.html',context)
+            return render(request,'account/register.html',context)
 
-    return render(request,'account/login.html')
+    return render(request,'services/index.html')
 
 
