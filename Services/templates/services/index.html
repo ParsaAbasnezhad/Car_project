@@ -20,8 +20,8 @@
 
     <ul class="navbar">
         <li><a href="#home">Home</a></li>
-        <li><a href="#ride">Ride</a></li>
-        <li><a href="#services">Services</a></li>
+        <li><a href="{% url 'Services:query' %}">Query</a></li>
+        <li><a href="{% url 'Services:car' %}">Services</a></li>
         <li><a href="{% url 'Services:about' %}">About</a></li>
         <li><a href="#reviews">Reviews</a></li>
     </ul>
@@ -47,20 +47,21 @@
     </div>
 
     <div class="form-container">
-        <form action="">
+        <form method="post" >
+            {% csrf_token %}
             <div class="input-box">
                 <span>Location</span>
-                <input type="search" placeholder="Search Places">
+                <input type="search" name="location" placeholder="Search Places">
             </div>
 
             <div class="input-box">
                 <span>Pick-up Date</span>
-                <input type="date">
+                <input type="date" name="date_1">
             </div>
 
             <div class="input-box">
                 <span>Return Date</span>
-                <input type="date">
+                <input type="date" name="date_2">
             </div>
             <input type="submit" class="btn">
         </form>
